@@ -1,0 +1,45 @@
+    1  ll
+    2  yum install git -y 
+    3   git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+    4  ll
+    5  yum update all -y 
+    6  yum update -y 
+    7  sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
+    8  cd s3fs-fuse
+    9  ./autogen.sh
+   10  ./configure --prefix=/usr --with-openssl
+   11  make
+   12  sudo make install
+   13  which s3fs
+   14  touch /etc/passwd-s3fs
+   15  vim /etc/passwd-s3fs
+   16  sudo chmod 640 /etc/passwd-s3fs
+   17  mkdir /mys3bucket
+   18  s3fs your_bucketname -o use_cache=/tmp -o allow_other -o uid=1001 -o mp_umask=002 -o multireq_max=5 /mys3bucket
+   19  s3fs expo321 -o use_cache=/tmp -o allow_other -o uid=1001 -o mp_umask=002 -o multireq_max=5 /mys3bucket
+   20  lsblk
+   21  mount a
+   22  mount -a
+   23  mount
+   24  umount /mys3bucket
+   25  s3fs expo321 -o use_cache=/tmp -o allow_other -o uid=1001 -o mp_umask=002 -o multireq_max=5 /mys3bucket
+   26  mount
+   27  s3fs expo321 -o use_cache=/tmp -o allow_other -o uid=1001 -o mp_umask=002 -o multireq_max=5 /mys3bucket
+   28  1
+   29   df -Th /mys3bucket
+   30  cd 
+   31  cd /mys3bucket
+   32  ll
+   33  mkdir mydata
+   34  cd mydata/
+   35  touch f1{1..4}
+   36  ll
+   37  umount /mys3bucket
+   38  ll
+   39  cd ..
+   40  ll
+   41  rm -rf mydata/
+   42  cd ..
+   43  umount /mys3bucket
+   44  history
+   45  history > s3mountprocess
